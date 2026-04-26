@@ -1,0 +1,120 @@
+body {
+    background-color: #1d1a27;
+    color: #e8fae1;
+    color-scheme: dark;
+    padding-top: 30px;
+}
+.menu {
+    max-height: 150px;
+    background-color: #352e3c;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    text-transform: capitalize;
+    right: 10px;
+    top: 20px;
+    max-width: 100px;
+    width: 150px;
+    animation: menuAni 20ms;
+    font-family:"Inter", sans-serif;
+    height: fit-content;
+    z-index: 2;
+}
+@keyframes menuAni {
+    from {
+        width: 35px;
+        height: 35px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+}
+.toggleMenuButton {
+    width: 35px;
+    height: 35px;
+    background: #0a171717;
+    backdrop-filter: blur(px);
+    border: none #01030f.5px;
+    border-radius: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    right: 10px;
+    top: 20px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: menuBtnAni 50ms ease-in;
+    transition: 250ms;
+}
+.toggleMenuButton:hover {
+    background-color: #d1b0c422;
+}
+.toggleBg {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1;
+    background-color: #1c000000;
+    backdrop-filter: blur(2px);
+    cursor: default;
+}
+@keyframes menuBtnAni {
+    from {
+        width: 100px;
+        height: 150px;
+        border-radius: 20px;
+    }
+}
+.menuLogo {
+    color: #01030f;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 5px;
+}
+.linksPar {
+    display: flex;
+    gap: 2px;
+    flex-direction: column;
+}
+.quickLinks {
+    text-decoration: none;
+    color: #ffadff;
+    display: flex;
+    margin-bottom: 2px;
+}
+.quickLinks:hover {
+    text-decoration: underline;
+}
+.searchLink {
+    color: #ffadff;
+    text-decoration: none;
+    border: solid gray .1px;
+    border-radius: 20px;
+    paddisng: 10px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    right: -50px;
+    /*padding: 0px 20px 0px 1px;
+    text-transform: lowercase;
+    cursor: vertical-text;*/
+}
+.linkImg {
+    width: 20px;
+    margin-right: 3px;
+}
+.menuImg {
+    width: 32px;
+    margin: 0px;
+    padding: 0px;
+}
