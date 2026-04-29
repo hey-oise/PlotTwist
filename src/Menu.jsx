@@ -9,8 +9,8 @@ import arrow from './assets/arrow.png';
 function QuickLinks(props) {
   return (
     <div className="linkInd">
-    <a href={props.path} className="quickLinks">
-      <img className="linkImg" src={props.imgUrl}/>{props.text}</a></div>
+    <Link to={props.path} className="quickLinks">
+      <img className="linkImg" src={props.imgUrl}/>{props.text}</Link></div>
   )
 }
 export default function Menu() {
@@ -31,7 +31,7 @@ export default function Menu() {
             {/* <div className="searchMenu"><img src={searchBar} alt="searchBar"></img><p>search</p></div>*/}
           
             <QuickLinks path='/trending' text='trending' imgUrl={trendingIcon} />
-            <QuickLinks path='/search' text='business' imgUrl={arrow} />
+            <QuickLinks path='/business' text='business' imgUrl={arrow} />
             <QuickLinks path='/sports' text='sports' imgUrl={sportsLogo} />
             <QuickLinks path='/politics' text='politics' imgUrl={politicsLogo} />
         </div>

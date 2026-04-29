@@ -1,35 +1,31 @@
+import { useState } from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Menu from "./Menu";
 import NewsLister from "./NewsLister";
 
 export default function App() {
+  const [online, setOnline] = useState(navigator.onLine);
+  function updateOnlineStatus() {
+    setOnline(navigator.onLine);
+  }
+  setInterval(updateOnlineStatus, 0);
   return (
-    <>
-      <Menu />
-      <NewsLister currentRoute='trending' />
-      <NewsLister currentRoute='business'/>
-      <NewsLister currentRoute='sports'/>
-      <NewsLister currentRoute='politics'/>
-      <h1>
-        lorem ipsum dolor lemo defr
-      </h1>
-      <iframe src= "https://gizmodo.com/popular-musician-loses-life-savings-through-malicious-crypto-wallet-in-apples-app-store-2000745902"></iframe>
-      <h1>{`# React + Vite
-      
-      This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-      
-      Currently, two official plugins are available:
-      
-      - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-      - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-      
-      ## React Compiler
-      
-      The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-      
-      ## Expanding the ESLint configuration
-      
-      If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [typescript-eslint](https://typescript-eslint.io) in your project.
-`}</h1>
+    <BrowserRouter>
+    
+      < Menu />
+      {
+      online?
+        <>
+    <Routes>
+      <Route path="/" element={<NewsLister currentRoute='trending' />} />
+              <Route path="/trending" element={<NewsLister currentRoute='trending' />} />
+              <Route path="/business" element={<NewsLister currentRoute='business' />} />
+                <Route path="/sports" element={<NewsLister currentRoute='sports' />} />
+              <Route path="/politics" element={<NewsLister currentRoute='politics' />} />
+              <Route path="*" element={<p className="noPage">404 page not found!</p>} />
+    </Routes>
     </>
+      : <p className="noPage">you appear offline try refreshing the page!</p>
+}</BrowserRouter>
   )
 }

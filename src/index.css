@@ -173,3 +173,11 @@ body {
 .searchBtn {
     width: 22px;
 }
+.noPage {
+    font-size: 30px;
+    width: 100%;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
