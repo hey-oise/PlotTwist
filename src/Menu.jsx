@@ -5,7 +5,7 @@ import searchBar from './assets/searchImage.png';
 import trendingIcon from './assets/trending.png';
 import sportsLogo from './assets/sports.png';
 import politicsLogo from './assets/agreement.png';
-
+import arrow from './assets/arrow.png';
 function QuickLinks(props) {
   return (
     <div className="linkInd">
@@ -29,8 +29,9 @@ export default function Menu() {
         <p className="menuLogo">Plot twist</p>
           <div className="linksPar">
             {/* <div className="searchMenu"><img src={searchBar} alt="searchBar"></img><p>search</p></div>*/}
-           <QuickLinks path='/search' text='search' imgUrl={searchBar} />
+          
             <QuickLinks path='/trending' text='trending' imgUrl={trendingIcon} />
+            <QuickLinks path='/search' text='business' imgUrl={arrow} />
             <QuickLinks path='/sports' text='sports' imgUrl={sportsLogo} />
             <QuickLinks path='/politics' text='politics' imgUrl={politicsLogo} />
         </div>
