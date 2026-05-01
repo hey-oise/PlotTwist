@@ -1,11 +1,50 @@
 import { useState } from "react";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NewsSingular from "./NewsSingular";
 import searchIcon from './assets/search.png';
 import { useRef } from "react";
 
 export default function NewsLister({ currentRoute }) {
+  
+  const [searchValue, setSearchValue] = useState();
+  const [newsData, setNewsData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(`https://newsapi.org/v2/top-headlines?category=${currentRoute}&apiKey=a2b939df31ce4b72bb3e12235b1b978e`);
+        if (!response.ok) {
+          setError(true);
+        } else {
+          const result = await response.json();
+          setNewsData(result);
+          setError(false)
+        }
+      } catch (err) {
+        setError(true);
+        console.log(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+  }, [currentRoute, searchValue]);
+  console.log(newsData)
+  let content;
+  if (isLoading) {
+    content = <p>loading...</p>;
+  } else if (error) {
+    content = <p>an error occured</p>
+  } else if (newsData) {
+    content = newsData.articles.map(data => <>
+      <NewsSingular title={data.title} imgLink={data.urlToImage} author={data.author} source={data.source.name} publishedAt={data.publishedAt} />
+    </>);
+  }
+
   const inputRef = useRef()
   const [isOpened, setIsOpened] = useState(false);
-  const [searchValue, setSearchValue] = useState();
   function toggleBar() {
     if (isOpened) {
       setIsOpened(false);
@@ -14,7 +53,7 @@ export default function NewsLister({ currentRoute }) {
     }
   }
   return (
-    <>
+    <div className="newsLister">
       {!isOpened ?
         <>
           <button className="toggleSearchButton" onClick={toggleBar}><img className="searchBtn" src={searchIcon} /></button>
@@ -38,10 +77,10 @@ export default function NewsLister({ currentRoute }) {
               }} ref={inputRef} type="search" className="searchBar" placeholder="What are you looking for?" />
           </div>
         </div>}
-      <h1>
-      you are in {currentRoute} 
-      , and you searched for:{' '} 
-      {searchValue}</h1>
-    </>
+      <h1 className="newsListHeader">{currentRoute}</h1>
+      <div className="newsPar">
+        {content}
+      </div>
+      </div>
   )
 }

@@ -6,11 +6,11 @@ body {
     padding-top: 30px;
 }
 .menu {
-    height: 200px;
+    min-height: 200px;
     background-colojr: #6e352e3c;
     border: solid gray .01px;
     backdrop-filter: blur(10px);
-    border-radius: 20px;
+    border-radius: 3px;
     padding: 10px;
     padding-left: 40px;
     display: flex;
@@ -73,7 +73,7 @@ body {
     from {
         width: 250px;
         height: 220px;
-        border-radius: 20px;
+        border-radius: 3px;
         border: solid gray .01px;
         background-color: transparent;
 }
@@ -172,6 +172,7 @@ body {
 }
 .searchBtn {
     width: 22px;
+    z-index: 4;
 }
 .noPage {
     font-size: 30px;
@@ -180,4 +181,58 @@ body {
     align-items: center;
     justify-content: center;
     display: flex;
+    font-family: monospace;
+    color: gray;
+}
+.newsLister {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.newsListHeader {
+    text-transform: capitalize;
+    color: gray;
+    display: flex;
+    margin: auto;
+    margin-top: 100px;
+}
+.newsPar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+    margin: auto;
+    margin-top: 150px;
+    padding: 0px;
+}
+.newsSingle {
+    width: 300px;
+    min-height: 350px;
+    border: solid .5px #85808080;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 250ms;
+    text-align: left;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.newsSingle p {
+    margin-left: 10px;
+}
+.newsImageSingle {
+    width: 300px;
+}
+.newsTitle {
+    font-weight: bold;
+}
+.newsDateS {
+    color: gray;
+}
+.author {
+    color: slategray;
 }
