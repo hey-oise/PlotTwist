@@ -29,9 +29,7 @@ export default function NewsLister({ currentRoute }) {
           setError(false)
         }
       } catch (err) {
-        setError(err);
-        alert(err)
-        console.log(err);
+        setError(true);
       } finally {
         setIsLoading(false);
       }
@@ -43,13 +41,12 @@ export default function NewsLister({ currentRoute }) {
   if (isLoading) {
     content = <p>loading...</p>;
   } else if (error) {
-    content = error;
+    content = <p>could not fetch news!</p>;
   } else if (newsData) {
     content = newsData.articles.map(data => <>
       <NewsSingular title={data.title} imgLink={data.urlToImage} author={data.author} source={data.source.name} publishedAt={data.publishedAt} />
     </>);
   }
-  let data = newsData;
   const inputRef = useRef()
   const [isOpened, setIsOpened] = useState(false);
   function toggleBar() {
