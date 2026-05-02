@@ -5,6 +5,7 @@ import NewsSingular from "./NewsSingular";
 import searchIcon from './assets/search.png';
 import { useRef } from "react";
 
+
 export default function NewsLister({ currentRoute }) {
   
   const [searchValue, setSearchValue] = useState();
@@ -14,7 +15,12 @@ export default function NewsLister({ currentRoute }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`https://newsapi.org/v2/top-headlines?category=${currentRoute}&apiKey=a2b939df31ce4b72bb3e12235b1b978e`);
+        let response;
+        if (!searchValue) {
+          response = await fetch(`https://newsapi.org/v2/top-headlines?category=${currentRoute}&apiKey=2de0898bfa2544c287971568da7f8f2a`);
+        } else {
+           response = await fetch(`https://newsapi.org/v2/top-headlines?q=${searchValue}&apiKey=a2b939df31ce4b72bb3e12235b1b978e`);
+        }
         if (!response.ok) {
           setError(true);
         } else {
@@ -23,7 +29,8 @@ export default function NewsLister({ currentRoute }) {
           setError(false)
         }
       } catch (err) {
-        setError(true);
+        setError(err);
+        alert(err)
         console.log(err);
       } finally {
         setIsLoading(false);
@@ -36,13 +43,13 @@ export default function NewsLister({ currentRoute }) {
   if (isLoading) {
     content = <p>loading...</p>;
   } else if (error) {
-    content = <p>an error occured</p>
+    content = error;
   } else if (newsData) {
     content = newsData.articles.map(data => <>
       <NewsSingular title={data.title} imgLink={data.urlToImage} author={data.author} source={data.source.name} publishedAt={data.publishedAt} />
     </>);
   }
-
+  let data = newsData;
   const inputRef = useRef()
   const [isOpened, setIsOpened] = useState(false);
   function toggleBar() {

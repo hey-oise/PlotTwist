@@ -6,7 +6,7 @@ import NewsLister from "./NewsLister";
 export default function App() {
   const [online, setOnline] = useState(navigator.onLine);
   function updateOnlineStatus() {
-    setOnline(navigator.onLine);
+    setOnline(true);
   }
   setInterval(updateOnlineStatus, 0);
   return (
@@ -29,7 +29,7 @@ export default function App() {
               <Route path="*" element={<p className="noPage">404 page not found!</p>} />
     </Routes>
     </>
-      : <p className="noPage">you appear offline try refreshing the page!</p>
+      : <p className="noPage">you appear offline check your internet connection!</p>
 }</BrowserRouter>
   )
 }
