@@ -17,8 +17,8 @@ export default function App() {
       online?
         <>
     <Routes>
-      <Route path="/" element={<NewsLister currentRoute='trending' />} />
-              <Route path="/trending" element={<NewsLister currentRoute='trending' />} />
+      <Route path="/" element={<NewsLister currentRoute='general' />} />
+              <Route path="/general" element={<NewsLister currentRoute='general' />} />
               <Route path="/business" element={<NewsLister currentRoute='business' />} />
               <Route path="/sports" element={<NewsLister currentRoute='sports' />} />
               <Route path="/politics" element={<NewsLister currentRoute='politics' />} />

@@ -34,7 +34,7 @@ export default function Menu() {
           <div className="linksPar">
             {/* <div className="searchMenu"><img src={searchBar} alt="searchBar"></img><p>search</p></div>*/}
           
-            <QuickLinks path='/trending' text='trending' imgUrl={trendingIcon} />
+            <QuickLinks path='/general' text='general' imgUrl={trendingIcon} />
             <QuickLinks path='/entertainment' text='entertainment' imgUrl={theater} />
             <QuickLinks path='/business' text='business' imgUrl={arrow} />
             <QuickLinks path='/sports' text='sports' imgUrl={sportsLogo} />
