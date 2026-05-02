@@ -26,9 +26,9 @@ export default function NewsLister({ currentRoute }) {
         } else {
           const result = await response.json();
           setNewsData(result);
-          setError(false)
+          setError(false);
         }
-      } catch (err) {
+      } catch {
         setError(true);
       } finally {
         setIsLoading(false);
@@ -44,7 +44,7 @@ export default function NewsLister({ currentRoute }) {
     content = <p>could not fetch news!</p>;
   } else if (newsData) {
     content = newsData.articles.map(data => <>
-      <NewsSingular title={data.title} imgLink={data.urlToImage} author={data.author} source={data.source.name} publishedAt={data.publishedAt} />
+      <NewsSingular title={data.title} imgLink={data.urlToImage} author={data.author} source={data.source.name} publishedAt={data.publishedAt} header={data.description} content={data.content} linkTo={data.url} />
     </>);
   }
   const inputRef = useRef()

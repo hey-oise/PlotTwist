@@ -5,6 +5,9 @@ body {
     color-scheme: dark;
     padding-top: 30px;
 }
+* {
+    z-index: 0;
+}
 .menu {
     min-height: 200px;
     background-colojr: #6e352e3c;
@@ -235,4 +238,57 @@ body {
 }
 .author {
     color: slategray;
+}
+.newsReaderPar {
+    width: 100%;
+    min-height: 200vh;
+    background-color: #171717;
+    position: fixed;
+    top: 0px;
+    z-index: 2;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    text-wrap: wrap;
+    overflow-y: hidden;
+}
+.newsReaderPar button {
+    color:black;
+    padding: 10px;
+    border: solid .01px black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.readerbutton1 {
+    background-color: #1d1a27;
+    position: fixed;
+    left: 10px;
+    top:  10px;
+}
+.readerbutton2 {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background-color: green;
+    color:black;
+    padding: 10px;
+    border: solid .01px black;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.newsReaderContent {
+    color: gray;
+    width: 600px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.newsReaderTitle {
+    color: slategray;
+    width: 500px;
+}
+.readerImg {
+    width: 00px;
 }
