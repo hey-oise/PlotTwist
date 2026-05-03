@@ -1,4 +1,4 @@
-export const newsData = {
+{
 
     "status": "ok",
     "totalResults": 5003,

@@ -6,8 +6,9 @@ import NewsLister from "./NewsLister";
 export default function App() {
   const [online, setOnline] = useState(navigator.onLine);
   function updateOnlineStatus() {
-    setOnline(true);
+    setOnline(navigator);
   }
+  
   setInterval(updateOnlineStatus, 0);
   return (
     <BrowserRouter>

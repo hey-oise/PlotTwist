@@ -253,6 +253,7 @@ body {
     align-items: center;
     text-wrap: wrap;
     overflow-y: hidden;
+    font-size: 10px;
 }
 .newsReaderPar button {
     color:black;

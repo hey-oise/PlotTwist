@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewsSingular from "./NewsSingular";
 import searchIcon from './assets/search.png';
 import { useRef } from "react";
+import responseAlt from './data.json';
 
 
 export default function NewsLister({ currentRoute }) {
-  
   const [searchValue, setSearchValue] = useState();
   const [newsData, setNewsData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -29,7 +28,9 @@ export default function NewsLister({ currentRoute }) {
           setError(false);
         }
       } catch {
-        setError(true);
+        /*normally setError should be set to true but well */
+        setError(false);
+         setNewsData(responseAlt);
       } finally {
         setIsLoading(false);
       }
