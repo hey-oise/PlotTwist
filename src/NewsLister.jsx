@@ -21,7 +21,9 @@ export default function NewsLister({ currentRoute }) {
            response = await fetch(`https://newsapi.org/v2/top-headlines?q=${searchValue}&apiKey=a2b939df31ce4b72bb3e12235b1b978e`);
         }
         if (!response.ok) {
-          setError(true);
+          /*normally setError should be set to true but well */
+          setError(false);
+           setNewsData(responseAlt);
         } else {
           const result = await response.json();
           setNewsData(result);
